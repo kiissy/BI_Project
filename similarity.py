@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[39]:
+# In[5]:
 
 
 import nltk
@@ -61,13 +61,20 @@ def similarity(category, index):
 
     sel_sim_list = []
     for sel_sim in sel_sims:
+        print(sel_sim)
         sel_sim_list.append(sel_sim)
     print(sel_sim_list)
     
     return sel_sim_list
 
-similarity(sys.argv[1], sys.argv[2]) # input : category(string), index(int)
+similarity('EDUCATION', 2) # input : category(string), index(int)
     
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:

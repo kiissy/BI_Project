@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[11]:
+# In[5]:
 
 
 import nltk
@@ -29,13 +29,16 @@ from sklearn.metrics.pairwise import linear_kernel
 
 
 
-fname = 'News_Category_Dataset.json'
+fname = 'new_list.json'
 
 data = []
-with open(fname) as st_json:
-    for line in st_json:
-        data.append(json.loads(line))
-    
+with open(fname, "r") as st_json:
+    data = json.load(st_json)
+#data = []
+#with open(fname) as st_json:
+#     for line in st_json:
+#         data.append(json.loads(line))
+           
 corpus = []
 for i in range(len(data)):
     #print(json.dumps(data[i], indent="\t"))
