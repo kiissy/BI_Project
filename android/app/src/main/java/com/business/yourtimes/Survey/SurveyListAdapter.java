@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.business.yourtimes.GlobalClass;
 import com.business.yourtimes.R;
-import com.business.yourtimes.SurveyActivity;
 import com.business.yourtimes.item.CategoryItem;
 
 import java.util.ArrayList;
@@ -54,7 +53,7 @@ public class SurveyListAdapter extends RecyclerView.Adapter<SurveyListAdapter.Vi
                         /* 버튼 클릭 시 */
                         else {
                             if (num == 3) {
-                                Toast.makeText(context, context.getResources().getString(R.string.survey_notice_toast), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, context.getResources().getString(R.string.survey_notice_over_toast), Toast.LENGTH_SHORT).show();
                             }
                             else {
                                 ((GlobalClass) context.getApplicationContext()).setSelected(pos, true);
@@ -62,7 +61,6 @@ public class SurveyListAdapter extends RecyclerView.Adapter<SurveyListAdapter.Vi
                                 mSelected.add(mDataset.get(pos));
                                 Log.d("SurveyListAdapter", "mSelected: " + mSelected.toString());
                             }
-
                         }
 
                         notifyDataSetChanged();

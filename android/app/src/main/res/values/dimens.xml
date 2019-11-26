@@ -3,6 +3,8 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <dimen name="rank_text_size">15sp</dimen>
+
     <dimen name="wide_size">30px</dimen>
 
     <dimen name="news_category">18sp</dimen>

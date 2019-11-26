@@ -25,26 +25,33 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:layout_marginVertical="@dimen/spacing_small">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_small"
             android:background="@color/category_first"
+            android:textSize="@dimen/survey_card_text"
             android:textColor="@color/colorBlack"
             android:text="@string/rank1" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_small"
             android:background="@color/category_second"
+            android:textSize="@dimen/survey_card_text"
             android:textColor="@color/colorBlack"
             android:text="@string/rank2" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_small"
             android:background="@color/category_third"
+            android:textSize="@dimen/survey_card_text"
             android:textColor="@color/colorBlack"
             android:text="@string/rank3" />
 
@@ -53,7 +60,7 @@
 
     <Button
         android:id="@+id/survey_done_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="Done" />

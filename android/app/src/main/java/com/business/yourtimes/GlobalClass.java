@@ -4,7 +4,10 @@ package com.business.yourtimes;
 import android.app.Application;
 import android.content.SharedPreferences;
 
+import com.business.yourtimes.News.NewsCard;
 import com.business.yourtimes.item.CategoryItem;
+
+import org.json.JSONArray;
 
 import java.util.ArrayList;
 
@@ -13,10 +16,14 @@ public class GlobalClass extends Application {
 
     /* 처음 접속하는 유저인지 확인하는 전역 변수 */
     private SharedPreferences appData;
+//    private JSONArray jsonArray;
+//    private ArrayList<NewsCard> mHistory;
 
     private boolean[] explicitly_selected;
 
     private String url;
+
+    public String temp;
 
 
     @Override
@@ -79,13 +86,15 @@ public class GlobalClass extends Application {
 
         appData = getSharedPreferences("appData", MODE_PRIVATE);
 
+//        jsonArray = new JSONArray();
+//        mHistory = new ArrayList<>();
     }
-
 
     /* for signing out */
     public void initialize() {
         SharedPreferences.Editor editor = appData.edit();
         editor.putBoolean("NEW", true);
+        editor.putBoolean("IMPLICIT", false);
         editor.apply();
 
         for (int i = 0; i < explicitly_selected.length; i++) {
@@ -98,6 +107,16 @@ public class GlobalClass extends Application {
         SharedPreferences.Editor editor = appData.edit();
         editor.putBoolean("NEW", false);
         editor.apply();
+    }
+
+    public void setImplicit() {
+        SharedPreferences.Editor editor = appData.edit();
+        editor.putBoolean("IMPLICIT", true);
+        editor.apply();
+    }
+
+    public boolean getImplicit() {
+        return appData.getBoolean("IMPLICIT", false);
     }
 
     public boolean isNew() {

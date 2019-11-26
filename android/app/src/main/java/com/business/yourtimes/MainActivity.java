@@ -4,23 +4,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.business.yourtimes.News.NewsCard;
 import com.business.yourtimes.News.NewsListAdapter;
 import com.business.yourtimes.item.CategoryItem;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.net.URL;
 import java.util.ArrayList;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.http.Url;
 
 public class MainActivity extends AppCompatActivity {
     private TextView maintext;
@@ -35,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView mRefreshIcon;
 
     private ServiceApi service;
+    private String tempData;
 
 
     @Override
@@ -107,8 +118,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        getExplicitNews();
+        tempData = ((GlobalClass) getApplicationContext()).temp;
+        //getExplicitNews();
         //setAdapter();
+        getImplicitNews();
     }
 
     private void setAdapter() {
@@ -121,22 +134,70 @@ public class MainActivity extends AppCompatActivity {
         data.add(new CategoryItem("ENTERTAINMENT"));
         data.add(new CategoryItem("CRIME"));
         data.add(new CategoryItem("PARENTS"));
+        JSONArray jArray = new JSONArray();
 
-        service.explicitMethod(data).enqueue(new Callback<ArrayList<NewsCard>>() {
-            @Override
-            public void onResponse(Call<ArrayList<NewsCard>> call, Response<ArrayList<NewsCard>> response) {
-                //mDataset.clear();
-                mDataset = response.body();
-
-                setAdapter();
+        try {
+            for (int i = 0; i < data.size(); i++) {
+                JSONObject sObject = new JSONObject();
+                sObject.put("category", data.get(i).getCategory());
+                jArray.put(sObject);
             }
 
-            @Override
-            public void onFailure(Call<ArrayList<NewsCard>> call, Throwable t) {
-                Log.e("MainActivity", "getExplicitNews server error");
-            }
-        });
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
+        ContentValues values = null;
+        //values.put("category", jArray.toString());
+        String postBody = jArray.toString();
+        Log.d("JSON",postBody);
+        String url = "http://192.168.43.13:8080/e_recommend";
+        NetworkTask networkTask = new NetworkTask(url, null,  postBody);
+        networkTask.execute();
 
     }
+
+
+    private void getImplicitNews() {
+        tempData = "[{\"category\": \"ENTERTAINMENT\", \"headline\": \"Chelsea Clinton Wrote To Ronald Reagan About Nazis When She Was 5\", \"authors\": \"Lee Moran\", \"link\": \"https://www.huffingtonpost.com/entry/chelsea-clinton-letter-nazis-ronald-reagan_us_5ae19172e4b02baed1b6cb45\", \"short_description\": \"The former president's failure to respond to Clinton's letter ended up changing White House policy.\", \"date\": \"2018-04-26\", \"index\": 26370}, {\"category\": \"CRIME\", \"headline\": \"Retirement Community Resident Allegedly Tested Homemade Poison On Neighbors\", \"authors\": \"Hilary Hanson\", \"link\": \"https://www.huffingtonpost.com/entry/ricin-retirement-community-neighbors_us_5a22ea6ce4b0a02abe918890\", \"short_description\": \"A 70-year-old woman is accused of sprinkling ricin on the food of other seniors.\", \"date\": \"2017-12-02\", \"index\": 27207}, {\"category\": \"PARENTS\", \"headline\": \"How To Tell Your Kids They're Going To Have A Sibling\", \"authors\": \"Taylor Pittman\", \"link\": \"https://www.huffingtonpost.com/entry/how-to-tell-your-kids-theyre-going-to-have-a-sibling_us_5a4fa362e4b003133ec77673\", \"short_description\": \"What to say, what to avoid and what to anticipate.\", \"date\": \"2018-01-08\", \"index\": 18022}, {\"category\": \"BLACK VOICES\", \"headline\": \"Mississippi School Finds No Evidence Principal Cut Student's Hair Without Permission (UPDATE)\", \"authors\": \"David Moye\", \"link\": \"https://www.huffingtonpost.com/entry/mississippi-boy-hair-locs-cut-principal_us_5abbfa33e4b03e2a5c78e34d\", \"short_description\": \"\\u201c[W]e found absolutely no evidence ... that his allegations of having his hair cut at school exist.\\\"\", \"date\": \"2018-03-28\", \"index\": 35170}]";
+        Log.d("JSON", tempData);
+        String url = "http://192.168.43.13:8080/i_recommend";
+        NetworkTask networkTask = new NetworkTask(url, null,  tempData);
+        networkTask.execute();
+    }
+
+    public class NetworkTask extends AsyncTask<Void, Void, String> {
+        String url;
+        ContentValues values;
+        String body;
+
+        NetworkTask(String url, ContentValues values, String postBody) {
+            this.url = url;
+            this.body = postBody;
+            this.values = values;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected  String doInBackground(Void... params) {
+            String result;
+            RequestHttpURLConnection requestHttpURLConnection = new RequestHttpURLConnection();
+            result = requestHttpURLConnection.request(url, values,body);
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String result) {
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG).show();
+            Log.d("Result", result);
+        }
+
+    }
+
+
+
 }
