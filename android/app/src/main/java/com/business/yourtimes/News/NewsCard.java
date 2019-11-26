@@ -21,6 +21,15 @@ public class NewsCard {
     @SerializedName("date")
     private String date;
 
+    public NewsCard(String category, String headline, String author, String url, String desc, String date) {
+        this.category = category;
+        this.headline = headline;
+        this.authors = author;
+        this.url = url;
+        this.desc = desc;
+        this.date = date;
+    }
+
     public String getCategory() {
         return category;
     }

@@ -10,7 +10,7 @@
         android:id="@+id/main_top"
         android:layout_width="match_parent"
         android:layout_height="@dimen/main_activity_top"
-        android:layout_marginVertical="@dimen/spacing_small"
+        android:layout_marginTop="@dimen/spacing_small2"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">

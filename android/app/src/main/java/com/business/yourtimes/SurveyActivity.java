@@ -20,6 +20,13 @@ public class SurveyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
 
+        if (!((GlobalClass) getApplicationContext()).isNew()) {
+            Intent intent = new Intent(SurveyActivity.this, MainActivity.class);
+            startActivity(intent);
+
+            finish();
+        }
+
         /* Done 버튼 클릭 시 MainActivity로 전환 */
         done = (Button) findViewById(R.id.survey_done_btn);
         done.setOnClickListener(new Button.OnClickListener() {

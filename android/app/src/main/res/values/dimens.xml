@@ -5,6 +5,12 @@
 
     <dimen name="wide_size">30px</dimen>
 
+    <dimen name="news_category">18sp</dimen>
+    <dimen name="news_headline">21sp</dimen>
+    <dimen name="news_author">16sp</dimen>
+    <dimen name="news_date">15sp</dimen>
+    <dimen name="news_desc">18sp</dimen>
+
     <dimen name="survey_title_size">30sp</dimen>
     <dimen name="survey_notice_size">18sp</dimen>
 

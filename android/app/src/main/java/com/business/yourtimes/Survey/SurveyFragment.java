@@ -34,12 +34,6 @@ public class SurveyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View fv = inflater.inflate(R.layout.fragment_survey, container, false);
 
-//        ArrayList<CategoryItem> temp = ((GlobalClass) getActivity().getApplication()).getCategories();
-//
-//        for (int i = 0; i < 41; i++) {
-//            categories.add(temp.get(i).getCategoryName());
-//        }
-
         categories = ((GlobalClass) getActivity().getApplication()).getCategories();
 
         mRecyclerView = (RecyclerView) fv.findViewById(R.id.survey_list);

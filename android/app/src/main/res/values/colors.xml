@@ -6,4 +6,7 @@
     <color name="colorWhite">#ffffff</color>
     <color name="colorGray">#bababa</color>
     <color name="colorBlack">#000000</color>
+
+    <color name="news_gray">#525252</color>
+    <color name="news_category">#000a78</color>
 </resources>

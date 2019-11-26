@@ -2,6 +2,7 @@ package com.business.yourtimes;
 
 
 import android.app.Application;
+import android.content.SharedPreferences;
 
 import com.business.yourtimes.item.CategoryItem;
 
@@ -11,8 +12,11 @@ public class GlobalClass extends Application {
     private ArrayList<CategoryItem> categories;
 
     /* 처음 접속하는 유저인지 확인하는 전역 변수 */
-    private boolean isNew;
+    private SharedPreferences appData;
+
     private boolean[] explicitly_selected;
+
+    private String url;
 
     @Override
     public void onCreate() {
@@ -71,6 +75,31 @@ public class GlobalClass extends Application {
         for (int i = 0; i < categories.size(); i++) {
             explicitly_selected[i] = false;
         }
+
+        appData = getSharedPreferences("appData", MODE_PRIVATE);
+    }
+
+
+    /* for signing out */
+    public void initialize() {
+        SharedPreferences.Editor editor = appData.edit();
+        editor.putBoolean("NEW", true);
+        editor.apply();
+
+        for (int i = 0; i < explicitly_selected.length; i++) {
+            explicitly_selected[i] = false;
+        }
+    }
+
+    /* after signing in */
+    public void register() {
+        SharedPreferences.Editor editor = appData.edit();
+        editor.putBoolean("NEW", false);
+        editor.apply();
+    }
+
+    public boolean isNew() {
+        return appData.getBoolean("NEW", true);
     }
 
     public void setSelected(int i, boolean value) {
@@ -101,16 +130,15 @@ public class GlobalClass extends Application {
         return categories;
     }
 
-    public boolean isNew() {
-        return isNew;
-    }
-
-    public void setNew(boolean aNew) {
-        isNew = aNew;
-    }
-
     public CategoryItem getCategory(int i) {
         return categories.get(i);
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 }

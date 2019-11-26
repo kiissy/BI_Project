@@ -9,4 +9,10 @@
     <string name="refresh">refresh</string>
     <string name="signout">sign out</string>
 
+    <string name="category">category</string>
+    <string name="headline">headline</string>
+    <string name="author">author</string>
+    <string name="date">date</string>
+    <string name="description">description</string>
+
 </resources>
