@@ -18,6 +18,7 @@ public class GlobalClass extends Application {
 
     private String url;
 
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -77,6 +78,7 @@ public class GlobalClass extends Application {
         }
 
         appData = getSharedPreferences("appData", MODE_PRIVATE);
+
     }
 
 
@@ -141,4 +143,5 @@ public class GlobalClass extends Application {
     public void setUrl(String url) {
         this.url = url;
     }
+
 }

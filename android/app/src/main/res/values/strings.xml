@@ -5,6 +5,10 @@
     <string name="survey_notice">Click 3 categories you like among 41 categories and press DONE button</string>
     <string name="survey_done">DONE</string>
     <string name="survey_notice_toast">Please choose 3 categories</string>
+    <string name="survey_notice_over_toast">Please choose only 3 categories</string>
+    <string name="rank1">Rank 1</string>
+    <string name="rank2">Rank 2</string>
+    <string name="rank3">Rank 3</string>
 
     <string name="refresh">refresh</string>
     <string name="signout">sign out</string>

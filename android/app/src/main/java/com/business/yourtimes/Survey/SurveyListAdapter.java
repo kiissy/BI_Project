@@ -20,10 +20,12 @@ import java.util.ArrayList;
 public class SurveyListAdapter extends RecyclerView.Adapter<SurveyListAdapter.ViewHolder> {
     Context context;
     private ArrayList<CategoryItem> mDataset;
+    private ArrayList<CategoryItem> mSelected;
 
     public SurveyListAdapter(Context context, ArrayList<CategoryItem>Dataset) {
         this.context = context;
         this.mDataset = Dataset;
+        mSelected = new ArrayList<>();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -42,22 +44,28 @@ public class SurveyListAdapter extends RecyclerView.Adapter<SurveyListAdapter.Vi
                     if (pos != RecyclerView.NO_POSITION) {
                         int num = ((GlobalClass) context.getApplicationContext()).numSelected();
 
-                        if (num == 3 && value == false) {
-                            Toast.makeText(context, context.getResources().getString(R.string.survey_notice_toast), Toast.LENGTH_SHORT).show();
-                        }
-                        else if (num < 3 || (num == 3 && value == true)){
-                            // 클릭
-                            if (value == false) {
-                                ((GlobalClass) context.getApplicationContext()).setSelected(pos, true);
-                                Log.d("SurveyListAdapter", "set " + pos + " as true");
-                            }
-                            // 클릭 해제
-                            else {
+                        /* 버튼 클릭 해제 시 */
+                        if (value) {
                                 ((GlobalClass) context.getApplicationContext()).setSelected(pos, false);
-                                Log.d("SurveyListAdapter", "set " + pos + " as false");
-                            }
-                            notifyItemChanged(pos);
+                                Log.d("SurveyListAdapter", "unset " + mDataset.get(pos).getCategory());
+                                mSelected.remove(mDataset.get(pos));
+                                Log.d("SurveyListAdapter", "mSelected: " + mSelected.toString());
                         }
+                        /* 버튼 클릭 시 */
+                        else {
+                            if (num == 3) {
+                                Toast.makeText(context, context.getResources().getString(R.string.survey_notice_toast), Toast.LENGTH_SHORT).show();
+                            }
+                            else {
+                                ((GlobalClass) context.getApplicationContext()).setSelected(pos, true);
+                                Log.d("SurveyListAdapter", "set " + mDataset.get(pos).getCategory());
+                                mSelected.add(mDataset.get(pos));
+                                Log.d("SurveyListAdapter", "mSelected: " + mSelected.toString());
+                            }
+
+                        }
+
+                        notifyDataSetChanged();
                     }
                 }
             });
@@ -83,7 +91,15 @@ public class SurveyListAdapter extends RecyclerView.Adapter<SurveyListAdapter.Vi
 
         // 버튼이 선택된 상태면
         if (value) {
-            holder.mButton.setBackgroundColor(context.getResources().getColor(R.color.colorGray));
+            if (mDataset.get(position).getCategory().equals(mSelected.get(0).getCategory())) {
+                holder.mButton.setBackgroundColor(context.getResources().getColor(R.color.category_first));
+            }
+            else if (mDataset.get(position).getCategory().equals(mSelected.get(1).getCategory())) {
+                holder.mButton.setBackgroundColor(context.getResources().getColor(R.color.category_second));
+            }
+            else if (mDataset.get(position).getCategory().equals(mSelected.get(2).getCategory())) {
+                holder.mButton.setBackgroundColor(context.getResources().getColor(R.color.category_third));
+            }
         }
 
         // 버튼이 선택되지 않은 상태라면

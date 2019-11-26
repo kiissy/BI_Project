@@ -42,7 +42,7 @@ public class SurveyActivity extends AppCompatActivity {
                     finish();
                 }
                 else {
-                    Toast.makeText(SurveyActivity.this, getResources().getString(R.string.survey_notice_toast), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SurveyActivity.this, getResources().getString(R.string.survey_notice_over_toast), Toast.LENGTH_SHORT).show();
                 }
             }
         });

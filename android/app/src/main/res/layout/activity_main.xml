@@ -26,6 +26,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageButton
+                android:id="@+id/refresh_icon"
                 android:layout_width="@dimen/main_activity_top"
                 android:layout_height="@dimen/main_activity_top"
                 android:background="@android:color/transparent"
@@ -52,6 +53,7 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <ImageButton
+                android:id="@+id/signout_icon"
                 android:layout_width="@dimen/main_activity_top"
                 android:layout_height="@dimen/main_activity_top"
                 android:background="@android:color/transparent"

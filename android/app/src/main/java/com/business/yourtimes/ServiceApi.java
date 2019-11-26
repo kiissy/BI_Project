@@ -11,10 +11,10 @@ import retrofit2.http.POST;
 
 public interface ServiceApi {
     /* Explicit Method */
-    @POST("/method/explicit")
+    @POST("/e_recommend")
     Call<ArrayList<NewsCard>> explicitMethod(@Body ArrayList<CategoryItem> data);
 
     /* Implicit Method */
-    @POST("/method/implicit")
+    @POST("/i_recommend")
     Call<ArrayList<NewsCard>> implicitMethod(@Body ArrayList<NewsCard> data);
 }

@@ -9,4 +9,8 @@
 
     <color name="news_gray">#525252</color>
     <color name="news_category">#000a78</color>
+
+    <color name="category_first">#ffb8b3</color>
+    <color name="category_second">#fffbcd</color>
+    <color name="category_third">#ddffc1</color>
 </resources>
