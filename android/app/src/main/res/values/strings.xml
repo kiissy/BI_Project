@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">YourTimes</string>
+
+    <string name="survey_title">What categories do you like?</string>
+    <string name="survey_notice">Click 3 categories you like among 41 categories and press DONE button</string>
+    <string name="survey_done">DONE</string>
+    <string name="survey_notice_toast">Please choose 3 categories</string>
+
+    <string name="refresh">refresh</string>
+    <string name="signout">sign out</string>
+
+</resources>

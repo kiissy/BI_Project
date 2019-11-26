@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="wide_size">30px</dimen>
+
+    <dimen name="survey_title_size">30sp</dimen>
+    <dimen name="survey_notice_size">18sp</dimen>
+
+    <dimen name="survey_card_width">130dp</dimen>
+    <dimen name="survey_card_height">70dp</dimen>
+    <dimen name="survey_card_text">18sp</dimen>
+
+    <dimen name="spacing_xsmall">2dp</dimen>
+    <dimen name="spacing_xsmall2">3dp</dimen>
+    <dimen name="spacing_small">4dp</dimen>
+    <dimen name="spacing_small2">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_medium2">20dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+    <dimen name="spacing_large2">28dp</dimen>
+    <dimen name="spacing_xlarge">32dp</dimen>
+    <dimen name="spacing_xlarge2">36dp</dimen>
+    <dimen name="spacing_xxxlarge">60dp</dimen>
+    <dimen name="spacing_xxxlarge2">75dp</dimen>
+    <dimen name="spacing_xxxlarge3">90dp</dimen>
+
+    <dimen name="main_activity_top">30dp</dimen>
+    <dimen name="main_activity_top_text">20sp</dimen>
+
+
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_activity_top"
+        android:layout_marginVertical="@dimen/spacing_small"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/refresh_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/spacing_small2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageButton
+                android:layout_width="@dimen/main_activity_top"
+                android:layout_height="@dimen/main_activity_top"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:layout_marginHorizontal="@dimen/spacing_small"
+                app:srcCompat="@drawable/refresh"                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/main_activity_top_text"
+                android:textStyle="bold"
+                android:text="@string/refresh" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/signout_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/spacing_small2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageButton
+                android:layout_width="@dimen/main_activity_top"
+                android:layout_height="@dimen/main_activity_top"
+                android:background="@android:color/transparent"
+                android:scaleType="fitCenter"
+                android:layout_marginHorizontal="@dimen/spacing_small"
+                app:srcCompat="@drawable/logout"                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/main_activity_top_text"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold"
+                android:text="@string/signout" />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/news_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_small"
+        app:layout_constraintTop_toBottomOf="@+id/main_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
