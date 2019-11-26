@@ -32,7 +32,7 @@ with open(fname, 'r') as f:
 
 corpus = []
 
-for i in range(10):
+for i in range(len(data):
     #print(json.dumps(data[i], indent="\t"))
     index = i
     category = data[i]['category']
