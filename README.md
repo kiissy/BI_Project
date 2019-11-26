@@ -5,9 +5,14 @@ category_list.py
  - 카테고리 목록 json 파일 쓰기
  - output : categoty.json
 
+reduce_data.py
+ - 약 20만 개의 뉴스 기사를 카테고리 당 1000개, 총 41000개의 기사로 reduce
+ - input : News_Category_Dataset_v2.json
+ - output : new_list.json
+
 data_processing.py
  - 자연어 처리
- - input : News_Category_Dataset_v2.json
+ - input : new_list.json
  - output : corpus.json
 
 make_sim_json.py
