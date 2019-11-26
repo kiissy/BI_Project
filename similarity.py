@@ -23,9 +23,7 @@ def similarity(category, index):
 
     sel_sim_list = []
     for sel_sim in sel_sims:
-        print(sel_sim)
         sel_sim_list.append(sel_sim)
-    print(len(sel_sim_list))
 
     return sel_sim_list
 
