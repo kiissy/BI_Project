@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[6]:
-
-
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.tag import pos_tag
@@ -25,24 +19,14 @@ def similarity(category, index):
     with open(fname, "r") as st_json:
         data = json.load(st_json)
 
-    sel_sims = (item for item in data if item['i_index'] == index)
+    sel_sims = (item for item in data if item['i_index'] == int(index))
 
     sel_sim_list = []
     for sel_sim in sel_sims:
         print(sel_sim)
         sel_sim_list.append(sel_sim)
-    print(sel_sim_list)
+    print(len(sel_sim_list))
 
     return sel_sim_list
 
-similarity(argv[1], argv[2]) # input : category(string), index(int)
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
+similarity(sys.argv[1], sys.argv[2]) # input : category(string), index(int)
