@@ -24,7 +24,7 @@ def similarity(category, index):
     data = []
     with open(fname, "r") as st_json:
         data = json.load(st_json)
-        
+
     sel_sims = (item for item in data if item['i_index'] == index)
 
     sel_sim_list = []
@@ -32,16 +32,10 @@ def similarity(category, index):
         print(sel_sim)
         sel_sim_list.append(sel_sim)
     print(sel_sim_list)
-    
+
     return sel_sim_list
 
-similarity('ENTERTAINMENT', 26000) # input : category(string), index(int)
-    
-
-
-# In[ ]:
-
-
+similarity(argv[1], argv[2]) # input : category(string), index(int)
 
 
 
@@ -50,3 +44,5 @@ similarity('ENTERTAINMENT', 26000) # input : category(string), index(int)
 
 
 
+
+# In[ ]:
