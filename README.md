@@ -23,5 +23,5 @@ make_sim_json.py
 
 similarity.py
  - 카테고리, 인덱스를 받아 해당하는 기사의 유사도 배열 내용 return
- - input : category(string, index) // similarity.py 'ENTERTAINMENT' 26000
+ - input : category(string, index) // similarity.py ENTERTAINMENT 26000
  - output : 해당 기사의 유사도 배열 list
