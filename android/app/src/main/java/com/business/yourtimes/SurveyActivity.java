@@ -35,6 +35,7 @@ public class SurveyActivity extends AppCompatActivity {
                 int num = ((GlobalClass) getApplicationContext()).numSelected();
 
                 if (num == 3) {
+                    ((GlobalClass) getApplicationContext()).register();
                     Intent intent = new Intent(SurveyActivity.this, MainActivity.class);
                     startActivity(intent);
 

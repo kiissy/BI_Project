@@ -70,13 +70,22 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/news_list"
+    <FrameLayout
+        android:id="@+id/news_frame"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/spacing_small"
+        android:layout_height="match_parent"
+        android:layout_marginTop="40dp"
         app:layout_constraintTop_toBottomOf="@+id/main_top"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/news_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_small">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

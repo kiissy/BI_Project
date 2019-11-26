@@ -44,6 +44,7 @@ public class WebviewFragment extends Fragment {
         mWebSettings.setUseWideViewPort(true); // 화면 사이즈 맞추기 허용 여부
         mWebSettings.setSupportZoom(true); // 화면 줌 허용 여부
         mWebSettings.setBuiltInZoomControls(true); // 화면 확대 축소 허용 여부
+        //mWebSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK); // 기간이 만료돼어 캐시를 사용할 수 없는 경우 네트워크 사용
         mWebSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.SINGLE_COLUMN); // 컨텐츠 사이즈 맞추기
         mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT); // 브라우저 캐시 허용 여부
         mWebSettings.setDomStorageEnabled(true); // 로컬저장소 허용 여부
