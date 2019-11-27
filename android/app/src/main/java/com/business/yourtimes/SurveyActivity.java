@@ -20,7 +20,7 @@ public class SurveyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_survey);
 
-        if (!((GlobalClass) getApplicationContext()).isNew()) {
+        if (((GlobalClass) getApplicationContext()).isOld()) {
             Intent intent = new Intent(SurveyActivity.this, MainActivity.class);
             startActivity(intent);
 

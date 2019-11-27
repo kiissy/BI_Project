@@ -51,6 +51,7 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.ViewHo
                     int pos = getAdapterPosition();
                     if (pos != RecyclerView.NO_POSITION) {
                         String url = mDataset.get(pos).getUrl();
+                        ((GlobalClass) context.getApplicationContext()).setHistory(mDataset.get(pos));
 
                         ((GlobalClass) context.getApplicationContext()).setUrl(url);
                         AppCompatActivity aca = (AppCompatActivity) view.getContext();
